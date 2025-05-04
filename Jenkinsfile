@@ -23,6 +23,14 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test stage'
+                sh '''
+                    if [ -f build/index.html ]; then
+                      echo "✅ index.html found."
+                    else
+                      echo "❌ index.html not found."
+                      exit 1
+                    fi
+                '''
             }
         }
     }
