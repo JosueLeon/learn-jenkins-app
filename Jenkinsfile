@@ -19,6 +19,13 @@ pipeline {
                     ls -la
                 '''
             }
+            steps {
+                sh '''
+                    cd build
+                    ls -la
+                    npm test
+                '''
+            }
         }
     }
 }
